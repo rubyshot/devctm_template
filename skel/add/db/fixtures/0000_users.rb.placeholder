@@ -1,0 +1,14 @@
+# This file will contain the admin password in plaintext.  It should not be
+# put in the source repository.  As such, .gitignore ignores this file.
+
+User.seed(:id, :login) do |s|
+  s.id = 1
+  s.login = 'admin'
+  s.password = 'ADMIN_PASSWORD_PLACEHOLDER'
+  s.password_confirmation = 'ADMIN_PASSWORD_PLACEHOLDER'
+  s.email = 'ctm@devctm.com'
+  s.time_zone = 'Mountain Time (US & Canada)'
+  s.active = true
+end
+
+User.connection.reset_pk_sequence!(User.table_name)

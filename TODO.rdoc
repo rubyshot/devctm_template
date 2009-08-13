@@ -1,0 +1,17 @@
+=== "Soon"
+
+* Split email column into +desired_email+ (settable by the user) and
+  +verified_email+.  +verified_email+ only gets set after the user follows
+  a link he is emailed, and even then he must log in before the the email
+  address is considered verified.
+
+=== Eventually
+
+* When you can't log in due to an account not yet being active, the error
+  that we get is "1 error prohibited this user session from being saved"
+
+* capistrano
+
+=== Maybe
+
+* live validations

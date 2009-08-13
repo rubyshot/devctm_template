@@ -1,0 +1,48 @@
+= Thank You
+
+Thank you Matz, for Ruby, DHH & crew for Rails, and everyone who has written
+or contributed to the gems and plugins that this template uses.
+
+== Code Substantially Similar To ...
+
+In addition to my thanks above to the people who have written the
+tools that I use every day, I am also thankful for the people whose
+ideas (and in tiny cases, code) I've used in this template.
+
+As I created this Rails template, I looked at a bunch of other
+peoples' templates (especially
+http://github.com/jeremymcanally/rails-templates,
+http://github.com/ericwright/rails-template, and
+http://github.com/ffmike/BigOldRailsTemplate) as well as a few
+authlogic tutorials (especially
+http://github.com/binarylogic/authlogic_example and
+http://github.com/matthooks/authlogic-activation-tutorial).
+
+Some of the ideas I've incorporated into this template include:
+
+* copying database.yml to database.yml.example and then not putting
+  database.yml into git (first noticed by me in rails-templates/daring.rb
+  from Peter Cooper)
+
+* The semantics (and in simple cases, the code) of most of the session
+  related methods in application_controller.rb
+  and user_sessions_controller.rb, copied from the authlogic_example
+
+=== Did I leave you out?
+
+I should have written this THANKS file as soon as I started creating
+this template.  At the time, I thought I'd just pull together various
+things that I'd already used and didn't really planning on cribbing
+anything from anyone.  However, I decided that it would be a good time
+to survey the technologies that other people are using.  It was then
+that I became a convert to authlogic, and decided to use basically the
+same method names and semantics (although in some cases, trivially
+rewritten) as in the authlogic demo.
+
+I certainly don't want to take credit for other people's work.  If you
+.see something in here that looks a lot like something you've done,
+drop me a line.  There's a chance that when I was surveying what other
+people were doing, that I picked up something from you and didn't
+think to document it.
+
+Cliff Matthews mailto:ctm@devctm.com

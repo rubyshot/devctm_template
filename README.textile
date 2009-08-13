@@ -1,0 +1,50 @@
+A Rails template for internal use by devctm.
+
+h2. Choices
+
+* RSpec (with Be Valid Asset)
+* Cucumber
+* Authlogic
+* Exception Notification
+* Foreign Key Migrations
+* Rubyist AASM [probably to be replaced with what's in Edge Rails]
+* TZInfo
+* UUID tools
+* Seed-Fu
+* Postgresql
+** pg
+* admin namespaced controllers
+* ssl_requirement
+* bluecloth
+* formtastic
+** validation_reflection
+* will_paginate
+* [maybe eventually] Live Validations
+
+h2. @skel@
+
+The primary purpose of skel is to make it so that the output of a generator is examined before it is removed or replaced.  That way if a new version of a generator produces a changed file, the person invoking the template will be given a chance to examine the difference between what was generated and what was expected.
+
+The @skel@ directory is used to alter the Rails application after all the packages have been installed and generators run.
+
+See @Devctm::Template::Tools#update_app_from_skel@ for more info.
+
+h2. Lightly Tested on Mac OS X and Fedora
+
+h3. Mac
+
+Currently I'm doing development on a dual G5 running Mac OS X 10.5.8 and an Intel Powerbook running Mac OS X 10.5.8.  Both are running a version of PostgreSQL 8.4.0, the dual G5 is using one from <a href="http://www.macports.org">Mac Ports</a>, the Powerbook is using one from <a href="http://www.postgresqlformac.com">PostgreSQL for Mac</a>.
+
+h3. Linux
+
+I'm doing development on Fedora 10 (i386) and Fedora 11 (x86_64).  They're both running PostgreSQL 8.3.7.  In order to make them go, I had to add myself to /etc/sudoers and also fix pg_hba.conf to use md5 authentication (instead of ident).
+
+h2. What You Should Get With The Template
+
+When you apply the template you'll be asked for a database password, an admin password and (unless you've used sudo recently) your own password for use with sudo.  At the end, your database and admin password will be printed.
+
+After applying the template, you should have a Rails application with what "rake spec:rcov" will claim to be 100% coverage.  You'll have a single administrative user with the login "admin" and the password you chose when the template was run.  The Rails app will be a git repository, but the two files with plaintext passwords (@config/database.yml@ and @db/fixtures/0000_users.rb@) will not be included in the repository.
+
+If you then run @script/server@, you'll have a Rails app that limps.  However, @config/routes.rb@ will __not__ have a @root@ entry, so if you want to log in, you'll need to use <http://localhost:3000/user_session/new>, but expect a complaint about an undefined local variable or method @root_url@.
+
+As configured, anyone can create a new account and supply any email address.  The email column is likely to change.  See TODO.rdoc for more thoughts.
