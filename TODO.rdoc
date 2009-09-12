@@ -15,3 +15,7 @@
 === Maybe
 
 * live validations
+
+* document how to get the pg gem installed on Mac OS X; there's documentation
+  floating around the net on how to do it, but I doubt it addresses things like
+  the unified installer failing on PPC (although who has PPC these days?)

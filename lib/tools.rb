@@ -105,9 +105,9 @@ module Devctm
       def ask_for_password(identifier, default = default_password)
         prompt = "Password for #{identifier}"
         default ||= ''
-        prompt << " (default is \"#{default}\")" unless default.blank?
+        prompt << " (default is \"#{default}\")" unless default.empty?
         retval = ask(prompt + '?')
-        retval = default if retval.blank?
+        retval = default if !retval || retval.empty?
         return retval
       end
 

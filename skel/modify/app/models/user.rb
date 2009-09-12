@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
+  attr_accessible :email, :password, :password_confirmation, :time_zone
+
   acts_as_authentic do |config|
     # Can set up various configuration options here
   end
-
-  attr_accessible :email, :password, :password_confirmation, :time_zone
 
   validates_each :time_zone do |u, attr, value|
     unless value.blank? || ActiveSupport::TimeZone[value]
