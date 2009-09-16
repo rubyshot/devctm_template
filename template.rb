@@ -140,6 +140,8 @@ gsub_file 'db/fixtures/0000_users.rb', /ADMIN_PASSWORD_PLACEHOLDER/, admin_passw
 
 rake 'db:seed'
 
+run 'capify .'
+
 git :add => '.'
 git :commit => '-a -m"Initial devctm_template commit."'
 
