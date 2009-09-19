@@ -1,4 +1,7 @@
-A Rails template for internal use by devctm.
+A Rails template for internal use by devctm.  Anyone is welcome to use it
+or take portions or ideas from it.  I'll cheerfully answer questions or add
+documentation if there's an interest.
+
 
 h2. Choices
 
@@ -11,7 +14,7 @@ h2. Choices
 * TZInfo
 * UUID tools
 * Seed-Fu
-* Postgresql
+* PostgreSQL
 ** pg
 * admin namespaced controllers
 * ssl_requirement
