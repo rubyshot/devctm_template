@@ -1,6 +1,11 @@
 # This file will contain the admin password in plaintext.  It should not be
 # put in the source repository.  As such, .gitignore ignores this file.
 
+# authlogic resets the single access token in before_validation,
+# but seed-fu now skips validation as it does the assignments.
+
+User.instance_eval { before_save :reset_single_access_token }
+
 User.seed(:id, :login) do |s|
   s.id = 1
   s.login = 'admin'
