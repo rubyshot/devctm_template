@@ -130,6 +130,8 @@ end
 
 gsub_file 'config/environment.rb',  /config.time_zone = 'UTC'/, "config.time_zone = 'Mountain Time (US & Canada)'"
 
+run 'capify .'
+
 fix_skel_migrations
 update_app_from_skel
 
@@ -138,9 +140,9 @@ rake 'db:migrate'
 File.rename 'db/fixtures/0000_users.rb.placeholder', 'db/fixtures/0000_users.rb'
 gsub_file 'db/fixtures/0000_users.rb', /ADMIN_PASSWORD_PLACEHOLDER/, admin_password
 
-rake 'db:seed'
+gsub_file 'config/deploy.rb', /APPNAME/, app_name
 
-run 'capify .'
+rake 'db:seed'
 
 git :add => '.'
 git :commit => '-a -m"Initial devctm_template commit."'
