@@ -31,6 +31,6 @@ namespace :deploy do
   # previous release should still be current
 
   task :after_update_code do
-    run "cp -p \"#{current_path}/config/database.yml\" \"#{release_path}/config/\""
+    run "cp -p '#{current_path}/config/database.yml' '#{release_path}/config/'"
   end
 end
