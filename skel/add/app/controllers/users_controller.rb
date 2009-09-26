@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_filter :require_user, :only => [:show, :edit, :update]
 
+  # HTTP verb and relative path
+  #   GET /user/new
+  #   GET /user/new.xml
   def new
     @user = User.new
 
@@ -10,6 +13,9 @@ class UsersController < ApplicationController
     end
   end
 
+  # HTTP verb and relative path
+  #   POST /user
+  #   POST /user.xml
   def create
     update_protected_attrs_from_params(:user, :login) do |p|
       @user = User.new(p)
@@ -28,6 +34,9 @@ class UsersController < ApplicationController
     end
   end
 
+  # HTTP verb and relative path
+  #   GET /user/1
+  #   GET /user/1.xml
   def show
     @user = current_user
 
@@ -37,10 +46,15 @@ class UsersController < ApplicationController
     end
   end
 
+  # HTTP verb and relative path
+  #   GET /user/1/edit
   def edit
     @user = current_user
   end
 
+  # HTTP verb and relative path
+  #   PUT /user/1
+  #   PUT /user/1.xml
   def update
     @user = current_user
 
