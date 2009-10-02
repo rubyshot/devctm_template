@@ -46,6 +46,20 @@ plugin 'validation_reflection',
   :git => 'git://github.com/redinger/validation_reflection.git',
   :submodule => true
 
+# We use bcurren ssl_requirement, because quantipay ssl_requirement
+# causes links on an https page to be http links which then just get
+# redirected to https, whereas bcurren doesn't use full paths when the
+# protocol doesn't need to change.  This is especially obvious with scaffolded
+# destroy links, like on a scaffolded index page.  W/quantipay ssl_requirment
+# the index page would properly be brought up as an ssl page, but the link
+# to the destroy would be http:.  So the temp-form-submit would do the submit
+# as http:, which would then be redirected to https but would then fail.  No
+# such problem with bcurren.
+
+plugin 'ssl_requirement',
+  :git => 'git://github.com/bcurren/ssl_requirement.git',
+  :submodule => true
+
 # Live validations looks like fun, but let's get things working without them,
 # first.  BTW, see <http://github.com/ffmike/BigOldRailsTemplate/tree/master>
 # for a bunch of useful stuff associated with live validations.
@@ -61,7 +75,6 @@ gem 'authlogic'
 gem 'tzinfo'
 gem 'uuidtools'
 gem 'unboxed-be_valid_asset', :lib => false
-gem 'quantipay-ssl_requirement', :lib => 'ssl_requirement'
 gem 'bluecloth', :version => '>= 2.0.0'
 gem 'justinfrench-formtastic', :lib => 'formtastic'
 gem 'mislav-will_paginate', :lib => 'will_paginate'
