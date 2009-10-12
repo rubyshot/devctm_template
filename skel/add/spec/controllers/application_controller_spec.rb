@@ -184,7 +184,7 @@ class ApplicationControllerTestController < ApplicationController
     save_notify_and_redirect 'moving soon', '/montana'
   end
 
-  def no_user_test
+  def require_no_user_test
     head :ok
   end
 end
