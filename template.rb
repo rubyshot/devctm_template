@@ -26,14 +26,9 @@ plugin 'exception_notifier',
   :git => 'git://github.com/rails/exception_notification.git',
   :submodule => true
 
-plugin 'redhillonrails_core',
-  :git => 'git://github.com/harukizaemon/redhillonrails_core.git',
+plugin 'foreigner',
+  :git => 'git://github.com/ctm/foreigner.git',
   :submodule => true
-
-plugin 'foreign_key_migrations',
-  :git => 'git://github.com/harukizaemon/foreign_key_migrations.git',
-  :submodule => true
-
 
 # Use seed-fu as a plugin because if we use the gem version, rake db:seed
 # doesn't work (known bug).
