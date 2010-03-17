@@ -12,7 +12,7 @@ describe Admin::UsersController do
 
   describe "GET index" do
     it "assigns all users as @users" do
-      User.stub!(:paginate).and_return([mock_user])
+      User.stub(:paginate).and_return([mock_user])
       get :index
       assigns[:users].should == [mock_user]
     end
@@ -20,7 +20,7 @@ describe Admin::UsersController do
 
   describe "GET show" do
     it "assigns the requested user as @user" do
-      User.stub!(:find).with("37").and_return(mock_user)
+      User.stub(:find).with("37").and_return(mock_user)
       get :show, :id => "37"
       assigns[:user].should equal(mock_user)
     end
@@ -28,7 +28,7 @@ describe Admin::UsersController do
 
   describe "GET new" do
     it "assigns a new user as @user" do
-      User.stub!(:new).and_return(mock_user)
+      User.stub(:new).and_return(mock_user)
       get :new
       assigns[:user].should equal(mock_user)
     end
@@ -36,7 +36,7 @@ describe Admin::UsersController do
 
   describe "GET edit" do
     it "assigns the requested user as @user" do
-      User.stub!(:find).with("37").and_return(mock_user)
+      User.stub(:find).with("37").and_return(mock_user)
       get :edit, :id => "37"
       assigns[:user].should equal(mock_user)
     end
@@ -46,13 +46,13 @@ describe Admin::UsersController do
 
     describe "with valid params" do
       it "assigns a newly created user as @user" do
-        User.stub!(:new).with({'these' => 'params'}).and_return(mock_user(:save => true, :attributes= => {}))
+        User.stub(:new).with({'these' => 'params'}).and_return(mock_user(:save => true, :attributes= => {}))
         post :create, :user => {:these => 'params'}
         assigns[:user].should equal(mock_user)
       end
 
       it "redirects to the created user" do
-        User.stub!(:new).and_return(mock_user(:save => true, :attributes= => {}))
+        User.stub(:new).and_return(mock_user(:save => true, :attributes= => {}))
         post :create, :user => {}
         response.should redirect_to(admin_user_url(mock_user))
       end
@@ -60,13 +60,13 @@ describe Admin::UsersController do
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved user as @user" do
-        User.stub!(:new).with({'these' => 'params'}).and_return(mock_user(:attributes= => {}, :save => false))
+        User.stub(:new).with({'these' => 'params'}).and_return(mock_user(:attributes= => {}, :save => false))
         post :create, :user => {:these => 'params'}
         assigns[:user].should equal(mock_user)
       end
 
       it "re-renders the 'new' template" do
-        User.stub!(:new).and_return(mock_user(:attributes= => {}, :save => false))
+        User.stub(:new).and_return(mock_user(:attributes= => {}, :save => false))
         post :create, :user => {}
         response.should render_template('new')
       end
@@ -85,13 +85,13 @@ describe Admin::UsersController do
       end
 
       it "assigns the requested user as @user" do
-        User.stub!(:find).and_return(mock_user(:attributes= => {}, :save => true))
+        User.stub(:find).and_return(mock_user(:attributes= => {}, :save => true))
         put :update, :id => "1"
         assigns[:user].should equal(mock_user)
       end
 
       it "redirects to the user" do
-        User.stub!(:find).and_return(mock_user(:attributes= => {}, :save => true))
+        User.stub(:find).and_return(mock_user(:attributes= => {}, :save => true))
         put :update, :id => "1"
         response.should redirect_to(admin_user_url(mock_user))
       end
@@ -106,13 +106,13 @@ describe Admin::UsersController do
       end
 
       it "assigns the user as @user" do
-        User.stub!(:find).and_return(mock_user(:attributes= => {}, :save => false))
+        User.stub(:find).and_return(mock_user(:attributes= => {}, :save => false))
         put :update, :id => "1"
         assigns[:user].should equal(mock_user)
       end
 
       it "re-renders the 'edit' template" do
-        User.stub!(:find).and_return(mock_user(:attributes= => {}, :save => false))
+        User.stub(:find).and_return(mock_user(:attributes= => {}, :save => false))
         put :update, :id => "1"
         response.should render_template('edit')
       end
@@ -130,7 +130,7 @@ describe Admin::UsersController do
       end
 
       it "redirects to the admin_users list" do
-        User.stub!(:find).and_return(mock_user(:destroy => true))
+        User.stub(:find).and_return(mock_user(:destroy => true))
         mock_user.should_receive(:admin?).and_return(false)
         delete :destroy, :id => "1"
         response.should redirect_to(admin_users_url)
@@ -148,7 +148,7 @@ describe Admin::UsersController do
         end
 
         it "redirects to the admin_users list" do
-          User.stub!(:find).and_return(mock_user(:destroy => true))
+          User.stub(:find).and_return(mock_user(:destroy => true))
           mock_user.should_receive(:admin?).and_return(true)
           delete :destroy, :id => "1"
           response.should redirect_to(admin_users_url)

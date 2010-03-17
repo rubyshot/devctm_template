@@ -1,0 +1,9 @@
+bluecloth  --version '>= 2.0.0'
+uuidtools  
+authlogic  
+rspec-rails  
+mislav-will_paginate --source gems.github.com
+justinfrench-formtastic --source gems.github.com
+unboxed-be_valid_asset --source gems.github.com
+rubyist-aasm --source gems.github.com
+

@@ -150,7 +150,7 @@ gsub_file 'db/fixtures/0000_users.rb', /ADMIN_PASSWORD_PLACEHOLDER/, admin_passw
 
 gsub_file 'config/deploy.rb', /APPNAME/, app_name
 
-rake 'db:seed'
+rake 'db:seed_fu'
 
 git :add => '.'
 git :commit => '-a -m"Initial devctm_template commit."'
